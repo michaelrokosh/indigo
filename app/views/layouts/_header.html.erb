@@ -1,0 +1,18 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "COMMENTATORS", root_path, id: "logo", class: "navbar-brand" %>
+    </div>
+  <nav>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'NEW POST', new_post_path %></li>
+      <% else %>
+        <li><%= link_to 'LOGIN', new_user_session_path %></li>
+        <li><%= link_to 'REGISTER', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+  </div>
+</header>

@@ -1,11 +1,13 @@
 Indigo::Application.routes.draw do
   get "users/controller"
-  devise_for :users, controllers: { registrations: 'users/registrations',  invitations: 'users/invitations' },
+  devise_for :users, controllers: { registrations: 'users/registrations' },
                      path_names:  { sign_up: 'register', sign_in: 'login', sign_out: 'logout' }
   resources :posts do
     resources :comments
   end
 
+  resources :users
+  
   root "posts#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

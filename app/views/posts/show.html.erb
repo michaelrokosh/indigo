@@ -2,9 +2,9 @@
   <h1><%= @post.title %></h1>
 </p>
 
-<p class = "image">
-  <%= image_tag("#{ @post.content }") %>
-</p>
+<!-- <p class = "image"> -->
+<%= render 'image' %>
+<!-- </p> -->
 
 <div class = "comments">
   <h2>Comments:</h2>

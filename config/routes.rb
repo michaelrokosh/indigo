@@ -1,7 +1,8 @@
 Indigo::Application.routes.draw do
   get "users/controller"
-  devise_for :users, controllers: { registrations: 'users/registrations' },
-                     path_names:  { sign_up: 'register', sign_in: 'login', sign_out: 'logout' }
+  devise_for :users
+  #, controllers: { registrations: 'users/registrations' },
+  #                  path_names:  { sign_up: 'register', sign_in: 'login', sign_out: 'logout' }
   resources :posts do
     resources :comments
   end

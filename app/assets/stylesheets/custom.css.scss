@@ -164,25 +164,66 @@ aside {
 
 /* Image(Commentators) */
 
+.comments_counter {
+  float: left;
+  padding: 6px 4px; 
+  margin: 30px 0px;
+  text-align: center; 
+  width: 56px; 
+  height: 50px;
+  background-image: url('http://diythemes.com/thesis/rtfm/wp-content/uploads/2011/11/my-comment-bubble.png');
+  a { 
+    display: block; 
+    text-align: center;
+    border: none; 
+    color: #fff;
+    font-family: arial; 
+    font-size: 28px; 
+    line-height: 1em;
+    font-weight: bold; 
+    text-decoration: none; 
+    padding: 0px;
+  }
+}
+
 .commentator {
   width: 600px;
-  margin: 0px auto;
+  margin: 25px auto;
   .image {
     padding-bottom: 0;
     img {
       width: 100%;
     }
   }
+  .img_header {
+    width: 100%;
+    h2 {
+      padding: 5px 10px 5px 10px;
+      float: left;
+      text-align: left;
+      margin: 0;
+    }
+    .share {
+      float: right;
+      margin-top: 5px;
+    }
+  }
   .topcomment {
     background-color: silver;
     width: 100%;
+    overflow:hidden;
     h1 {
       padding: 25px 10px 10px 10px;
       margin: 0;
     }
     h2 {
-      padding: 0px 25px 25px 0px;
+      padding: 0px;
       text-align: center;
+      margin: 10px 100px 0px 100px;
+    }
+    .vote {
+      float: right;
+      padding: 0px 5px 5px 0px; 
     }
   }
 }

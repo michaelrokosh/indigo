@@ -5,5 +5,6 @@
 	<div class = "topcomment">
  		<h1><%= @post.comments.last.body %></h1>
  		<h2>- <%= link_to @post.comments.last.user.username, user_path(@post.comments.first.user) %></h2>
+ 		<div class = "vote"><%= link_to '-1' %> / <%= link_to '+1' %></div>
  	</div>
 </div>

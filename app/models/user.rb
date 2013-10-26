@@ -5,5 +5,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments
+  has_many :votes, :through => :comments
   validates :username, :presence => true 
+
+	def karma
+		self.votes.sum(:score)
+	end
+
+  def positive_votes
+    self.votes.sum(:score, :conditions => 'score > 0')
+  end
+
+  def negative_votes
+    self.votes.sum(:score, :conditions => 'score < 0')
+  end
 end

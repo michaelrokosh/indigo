@@ -5,4 +5,5 @@ class Post < ActiveRecord::Base
 	                  length: { minimum: 3 }
 	validates :content, presence: true
 	
+	acts_as_taggable
 end

@@ -1,7 +1,6 @@
-<h1>Recent commentators</h1>
-<table class="table">
-	<%- @posts.each do |post| %>
-	<div class = "one_post">
+<h1>#<%= @tag %></h1>
+<%- @posts.each do |post| %>
+<div class = "one_post">
 		<div class = "comments_counter">
 			<%= link_to post.comments_count, post_path(post) %>
 		</div>
@@ -45,5 +44,3 @@
 		</div>
 	</div>
 	<% end %>
-	<%= will_paginate @posts %>
-</table>

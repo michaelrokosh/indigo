@@ -39,7 +39,7 @@
 		 		</div>
 		 		<% end %>
 		 		<div class = "vote">
-		 			<%= link_to '-1' %> / <%= link_to '+1' %>
+		 			<%= link_to '-1' %> / <%= link_to('+1', vote_up_post_comment_path(@post, @comment), :method => :post) %>
 		 		</div>
 		 	</div>
 		</div>

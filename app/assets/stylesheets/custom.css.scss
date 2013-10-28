@@ -157,8 +157,11 @@ aside {
 .comment_body {
   background-color: #dfdfdf;
   margin-left: 35px;
+    .comments_votes {
+      float: right;
+    }
     span {
-      margin: 10px;
+      padding: 10px;
     }
 }
 
@@ -227,7 +230,7 @@ aside {
     }
     .tags {
       float: left;
-      padding: 0px 0px 0px 5px;
+      padding: 0px 0px 5px 5px;
     }
   }
 }

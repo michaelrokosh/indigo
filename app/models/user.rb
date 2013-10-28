@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments
-  has_many :votes, :through => :comments
   validates :username, :presence => true 
+  acts_as_voter
 
 	def karma
 		self.votes.sum(:score)

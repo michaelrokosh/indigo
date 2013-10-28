@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     @posts = Post.paginate(:order => "created_at DESC", :page => params[:page], :per_page => 2)
   end
 
+
   private
     def post_params
       params.require(:post).permit(:title, :content, :tag_list)

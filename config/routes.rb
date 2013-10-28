@@ -4,7 +4,12 @@ Indigo::Application.routes.draw do
   #, controllers: { registrations: 'users/registrations' },
   #                  path_names:  { sign_up: 'register', sign_in: 'login', sign_out: 'logout' }
   resources :posts do
-    resources :comments
+    resources :comments do
+      member do
+        post :vote_up
+        post :vote_down
+      end
+    end
   end
 
   resources :users

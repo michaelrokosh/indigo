@@ -10,11 +10,17 @@
   <h2>Comments:</h2>
   <% @post.comments.each do |comment| %>
     <p>
-      <strong><%= comment.user.username %></strong> said:
+      <strong><%= link_to comment.user.username, user_path(comment.user) %></strong> said:
     </p>
-  <p class="comment_body">
+  <div class="comment_body">
     <span><%= comment.body %></span>
-  </p>
+    <div class = "comments_votes">
+       <%= link_to('-1', vote_down_post_comment_path(@post, comment), :method => :post) %> / 
+       <%= link_to('+1', vote_up_post_comment_path(@post, comment), :method => :post) %>
+       Total: <%= comment.plusminus %>
+    </div>
+  </div>
+ 
 <% end %>
   <h2>Add a comment:</h2>
   <%= form_for([@post, @post.comments.build]) do |f| %>

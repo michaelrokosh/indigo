@@ -29,6 +29,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'acts-as-taggable-on'
+gem 'thumbs_up'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

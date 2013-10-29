@@ -5,10 +5,10 @@
 	<div class = "topcomment">
 		<%- if @post.comments.any? %>
  		<h1>
- 			<%= @post.comments.last.body %>
+ 			<%= @post.comments.order(rating: :desc).first.body %>
  		</h1>
  		<h2>
- 			- <%= link_to @post.comments.last.user.username, user_path(@post.comments.first.user) %>
+ 			- <%= link_to @post.comments.order(rating: :desc).first.user.username, user_path(@post.comments.order(rating: :desc).first.user) %>
  		</h2>
  		<%- else %>
  		<h1>
@@ -23,7 +23,9 @@
  		</div>
  		<% end %>
  		<div class = "vote">
- 			<%= link_to '-1' %> / <%= link_to('+1', vote_up_post_comment_path(@post, @comment), :method => :post) %>
+	       <%= link_to('-1', vote_down_post_comment_path(@post, @post.comments.order(rating: :desc).first), :method => :post) %> / 
+	       <%= link_to('+1', vote_up_post_comment_path(@post, @post.comments.order(rating: :desc).first), :method => :post) %>
+	       Total: <%= @post.comments.order(rating: :desc).first.rating %>
  		</div>
  	</div>
 </div>

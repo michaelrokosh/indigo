@@ -8,15 +8,4 @@ class User < ActiveRecord::Base
   validates :username, :presence => true 
   acts_as_voter
 
-	def karma
-		self.votes.sum(:score)
-	end
-
-  def positive_votes
-    self.votes.sum(:score, :conditions => 'score > 0')
-  end
-
-  def negative_votes
-    self.votes.sum(:score, :conditions => 'score < 0')
-  end
 end

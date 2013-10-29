@@ -15,13 +15,18 @@ class Vote < ActiveRecord::Base
   validates_uniqueness_of :voteable_id, :scope => [:voteable_type, :voter_type, :voter_id]
 
   after_create :update_comment_rating
-    
+
     def update_comment_rating
     	self.voteable.rating = self.voteable.plusminus
       self.voteable.save
-      self.voteable.user.karma += self.voteable.plusminus
-      self.voteable.user.save
+      #self.voteable.user.karma += self.voteable.plusminus
+      #self.voteable.user.save
     end
 
+  after_create :update_user_karma
+    def update_user_karma
+      self.voteable.user.karma = self.voteable.user.comments.pluck(:rating).sum
+      self.voteable.user.save
+    end
 
 end

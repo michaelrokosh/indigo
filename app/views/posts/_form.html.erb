@@ -1,3 +1,4 @@
+
 <%= form_for @post do |f| %>
   <% if @post.errors.any? %>
   <div id="error_explanation">
@@ -12,20 +13,20 @@
   <% end %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </p>
  
   <p>
     <%= f.label :image %><br>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, class: 'form-control' %>
   </p>
  
   <p>
     <%= f.label :tags %>, separated by comma<br>
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, class: 'form-control' %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "New post", class: 'btn btn-default' %>
   </p>
 <% end %>

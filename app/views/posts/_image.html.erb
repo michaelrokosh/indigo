@@ -22,10 +22,12 @@
  			<% end %>
  		</div>
  		<% end %>
+ 		<%- if @post.comments.any? %>
  		<div class = "vote">
 	       <%= link_to('-1', vote_down_post_comment_path(@post, @post.comments.order(rating: :desc).first), :method => :post) %> / 
 	       <%= link_to('+1', vote_up_post_comment_path(@post, @post.comments.order(rating: :desc).first), :method => :post) %>
 	       Total: <%= @post.comments.order(rating: :desc).first.rating %>
  		</div>
+ 		<% end %>
  	</div>
 </div>

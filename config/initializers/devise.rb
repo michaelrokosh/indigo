@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = '3e96e2bcdabd85e4a387c1424306d7d532194c61bce186cae6b26c71381014c44064e7a5924da199e377a53ae939da90a7018482197e767d34b60835d6e84065'
   require "omniauth-vkontakte"
-  config.omniauth :vkontakte, "3345209", "TiX9b9jKANvJCsf9TNes"
+  config.omniauth :vkontakte, "4126350", "8KQ0yMPalEPfYTgyQDHE"
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

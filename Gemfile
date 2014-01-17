@@ -34,6 +34,8 @@ gem "cancan" # roles
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'haml'
+gem 'localtunnel'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

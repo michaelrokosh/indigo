@@ -6,13 +6,16 @@ class User < ActiveRecord::Base
 
   has_many :comments
   validates :username, :presence => true 
+  validates :email, :presence => true,
+					  :uniqueness => true,
+					  :unless => "url.present?"
   acts_as_voter
 
   def self.find_for_vkontakte_oauth access_token
     if user = User.where(url: access_token.info.urls.Vkontakte).first
       user
     else 
-      User.create!(provider: access_token.provider, url: access_token.info.urls.Vkontakte, username: access_token.info.name, nickname: access_token.extra.raw_info.domain, email: "user@vk.com", password: Devise.friendly_token[0,20]) 
+      User.create!(provider: access_token.provider, url: access_token.info.urls.Vkontakte, username: access_token.info.name, nickname: access_token.extra.raw_info.domain, password: Devise.friendly_token[0,20]) 
     end
   end
 

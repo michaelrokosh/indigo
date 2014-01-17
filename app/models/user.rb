@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :comments
   validates :username, presence: true 
-  validates :email, presence: false,
-					  uniqueness: true,
-					  unless: "url.present?"
   acts_as_voter
 
   def self.find_for_vkontakte_oauth access_token

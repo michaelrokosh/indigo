@@ -34,7 +34,7 @@ gem "cancan" # roles
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'haml'
-gem 'localtunnel'
+
 
 
 group :doc do

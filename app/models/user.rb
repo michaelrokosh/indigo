@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   validates :username, :presence => true 
   acts_as_voter
 
+  devise :omniauthable
+  
+
 end

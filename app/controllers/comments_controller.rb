@@ -11,10 +11,8 @@ class CommentsController < ApplicationController
     	@post = Post.find(params[:post_id])
       begin
         current_user.vote_for(@comment = Comment.find(params[:id]))
-        #render :nothing => true, :status => 200
         redirect_to :back
       rescue ActiveRecord::RecordInvalid
-        #render :nothing => true, :status => 404
         redirect_to :back
       end
     end
@@ -34,5 +32,5 @@ class CommentsController < ApplicationController
 	private
 		def comment_params
 	      params.require(:comment).permit(:commenter, :body, :post_id)
-	    end
+	  end
 end

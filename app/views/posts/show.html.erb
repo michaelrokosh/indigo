@@ -2,9 +2,7 @@
   <h1><%= @post.title %></h1>
 </p>
 
-<!-- <p class = "image"> -->
 <%= render 'image' %>
-<!-- </p> -->
 
 <div class = "comments">
   <h2>Comments:</h2>
@@ -20,26 +18,21 @@
        Total: <%= comment.rating %>
     </div>
   </div>
- 
 <% end %>
   <h2>Add a comment:</h2>
   <%= form_for([@post, @post.comments.build]) do |f| %>
-    
-      <p>
-        <%= f.hidden_field :post_id %>
-      	<%= f.label :commenter %><br>
-      	<%= f.text_field :commenter, class: 'form-control' %>
-      </p>
-
-      <p>
-        <%= f.label :body %><br>
-        <%= f.text_area :body, class: 'form-control' %>
-      </p>
-
-      <p>
-      	<%= f.submit 'Submit', class: 'btn btn-default' %>
-      </p>
- 
+    <p>
+      <%= f.hidden_field :post_id %>
+    	<%= f.label :commenter %><br>
+    	<%= f.text_field :commenter, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body, class: 'form-control' %>
+    </p>
+    <p>
+    	<%= f.submit 'Submit', class: 'btn btn-default' %>
+    </p>
   <% end %>
 </div>
 <%= link_to "Back", posts_path %>

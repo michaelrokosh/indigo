@@ -9,9 +9,11 @@
 	    	<div class = "img_header">
 	    		<h2>
 	    			<%= link_to post.title, post_path(post) %> | 
-	    			<%= link_to 'Edit', edit_post_path(post) %>
-					<%= link_to 'Delete', post_path(post),
-			                method: :delete, data: { confirm: 'Are you sure?' } %>
+	    			<%- if can? :update, post %>
+		    			<%= link_to 'Edit', edit_post_path(post) %>
+						<%= link_to 'Delete', post_path(post),
+				                method: :delete, data: { confirm: 'Are you sure?' } %>
+				    <% end %>s
 			    </h2>
 			    <div class ="share"><%= image_tag 'http://cityofwaterfalls.ca/wp-content/plugins/wp-rss-multi-importer/images/facebook.png' %></div>
 	    	</div>
@@ -27,23 +29,23 @@
 			 			- <%= link_to post.comments.order(rating: :desc).first.user.username, user_path(post.comments.order(rating: :desc).first.user) %>
 			 		</h2>
 		 		<%- else %>
-		 		<h1>
-		 			No comments!
-		 		</h1>
+			 		<h1>
+			 			No comments!
+			 		</h1>
 		 		<% end %>
 		 		<%- if post.tag_list %>
-		 		<div class = "tags">
-		 			<%- post.tag_list.each do |tag| %>
-		 			<%= link_to "##{ tag }", tag_path(tag) %>
-		 			<% end %>
-		 		</div>
+			 		<div class = "tags">
+			 			<%- post.tag_list.each do |tag| %>
+			 			<%= link_to "##{ tag }", tag_path(tag) %>
+			 			<% end %>
+			 		</div>
 		 		<% end %>
 		 		<%- if post.comments.any? %>
-		 		<div class = "vote">
-					<%= link_to('-1', vote_down_post_comment_path(post, post.comments.order(rating: :desc).first), :method => :post) %> / 
-	      			<%= link_to('+1', vote_up_post_comment_path(post, post.comments.order(rating: :desc).first), :method => :post) %>
-	       			Total: <%= post.comments.order(rating: :desc).first.rating %>
-		 		</div>
+			 		<div class = "vote">
+						<%= link_to('-1', vote_down_post_comment_path(post, post.comments.order(rating: :desc).first), :method => :post) %> / 
+		      			<%= link_to('+1', vote_up_post_comment_path(post, post.comments.order(rating: :desc).first), :method => :post) %>
+		       			Total: <%= post.comments.order(rating: :desc).first.rating %>
+			 		</div>
 		 		<% end %>
 		 	</div>
 		</div>

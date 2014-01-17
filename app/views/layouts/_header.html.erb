@@ -9,7 +9,7 @@
         <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to 'NEW POST', new_post_path %></li>
       <% else %>
-        <li><%= link_to 'LOGIN', new_user_session_path %></li>
+        <li><%= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte) %></li>
         <li><%= link_to 'REGISTER', new_user_registration_path %></li>
       <% end %>
     </ul>

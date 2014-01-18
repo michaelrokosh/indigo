@@ -15,6 +15,24 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+ def update
+    @user = User.find(current_user.id)
+
+    successfully_updated = 
+      params[:user].delete(:current_password)
+      @user.update_without_password(params[:user])
+    end
+
+    if successfully_updated
+      set_flash_message :notice, :updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
+      redirect_to after_update_path_for(@user)
+    else
+      render "edit"
+    end
+  end
+
   protected
 
     def configure_permitted_parameters

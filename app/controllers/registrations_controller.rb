@@ -18,8 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
  def update
     @user = User.find(current_user.id)
 
-    successfully_updated = 
-      params[:user].delete(:current_password)
+    successfully_updated = params[:user].delete(:current_password)
       @user.update_without_password(params[:user])
     end
 

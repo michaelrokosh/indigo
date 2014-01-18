@@ -37,12 +37,10 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
-end
 
   protected
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:password, :username, :email, :nickname, :url, :avatar_url, :provider) }
     end
-
 end
